@@ -1,5 +1,4 @@
 const express = require('express')
-const Availibility = require('../models/AvailibilityTime')
 
 const router = express.Router()
 
