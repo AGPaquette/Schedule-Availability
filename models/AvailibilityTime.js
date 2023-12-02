@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 //default times are set in min in this deafult 
 const AvailabiltyTimeSchema = new Schema({
     Monday: {
@@ -65,4 +65,8 @@ const AvailabiltyTimeSchema = new Schema({
         },
         default: { start: 420, end: 990 },
         require: true
-})
+});
+
+module.exports = mongoose.model('Availibility', AvailabiltyTimeSchema);
+
+
