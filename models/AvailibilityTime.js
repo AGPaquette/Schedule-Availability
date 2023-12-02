@@ -57,9 +57,8 @@ const AvailabiltyTimeSchema = new Schema({
     }, 
 
     Sunday: {
-        Type: Number,
         require: true
-    },        Type: {
+    },       Type: {
             start: Number,
             end: Number
         },

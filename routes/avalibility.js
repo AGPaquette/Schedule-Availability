@@ -1,4 +1,5 @@
 const express = require('express')
+const Availibility = require('../models/AvailibilityTime')
 
 const router = express.Router()
 
@@ -8,8 +9,14 @@ router.get('/', (req, res) => {
 })
 
 //post user availibilty
-router.post('/', (req, res) => {
-    res.json({mssg: 'post the user avalibilty'})
+router.post('/', async (req, res) => {
+    const {start, end} = req.body
+    try {
+        const availibilty = await Availibility.create({start, end})
+        res.status(200).json(availibilty)
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
 })
 
 //update user avalibilty
