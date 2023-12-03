@@ -2,8 +2,11 @@ const express = require('express')
 const {
     createAvalibility,
     getAvalibilities,
-    getAvalibility
+    getAvalibility,
+    deleteAvalibility,
+    updateAvalibility,
 } = require('../controllers/availibilityController')
+
 
 const router = express.Router()
 
@@ -16,9 +19,10 @@ router.get('/:id', getAvalibility)
 //post user availibilty
 router.post('/', createAvalibility)
 
-//update user avalibilty
-router.patch('/:id', (req,res) => {
-    res.json({mssg: 'user availibilty updated'})
-})
+//delete user avalibility
+router.delete('/:id', deleteAvalibility)
 
-module.exports =router
+//update user avalibilty
+router.patch('/:id', updateAvalibility)
+
+module.exports = router

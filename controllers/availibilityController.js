@@ -40,13 +40,43 @@ const createAvalibility = async (req, res) => {
     }
 }
 //delete avalibility
+const deleteAvalibility = async (req, res) => {
+    const {id} = req.body
+
+    if(!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({error: 'No avalibility'})
+    }
+
+    const availibility = await Availibility.findOneAndDelete({_id: id})
+
+    if (!availibility) {
+        return res.status(400).json({error: 'Avalibility does not exist'})
+    }
+}
 
 
 //update avalibility
+const updateAvalibility = async (req, res) => {
+    const {id} = req.body
+
+    if(!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({error: 'No avalibility'})
+    }
+
+    const availibility = await Availibility.findByOneAndUpdate({_id: id}, {
+        ...req.body})
+
+    if (!availibility) {
+        return res.status(400).json({error: 'Avalibility does not exist'})
+    }
+
+}
 
 
 module.exports = {
     createAvalibility,
     getAvalibilities,
     getAvalibility,
+    deleteAvalibility,
+    updateAvalibility,
 }
