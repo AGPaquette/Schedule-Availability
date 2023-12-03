@@ -1,15 +1,13 @@
 const express = require('express')
 const {
-    createAvalibility
+    createAvalibility,
+    getAvalibility,
 } = require('../controllers/availibilityController')
 
 const router = express.Router()
 
 //gets user avalibilty
-router.get('/', (req, res) => {
-    res.json({mssg: 'avalibilty obtained'})
-})
-
+router.get('/', getAvalibility)
 //post user availibilty
 router.post('/', createAvalibility)
 

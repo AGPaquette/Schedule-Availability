@@ -30,5 +30,6 @@ const createAvalibility = async (req, res) => {
 
 
 module.exports = {
-    createAvalibility
+    createAvalibility,
+    getAvalibility,
 }
