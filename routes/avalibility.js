@@ -1,4 +1,7 @@
 const express = require('express')
+const {
+    createAvalibility
+} = require('../controllers/availibilityController')
 
 const router = express.Router()
 
@@ -8,15 +11,7 @@ router.get('/', (req, res) => {
 })
 
 //post user availibilty
-router.post('/', async (req, res) => {
-    const {start, end} = req.body
-    try {
-        const availibilty = await Availibility.create({start, end})
-        res.status(200).json(availibilty)
-    } catch (error) {
-        res.status(400).json({error: error.message})
-    }
-})
+router.post('/', createAvalibility)
 
 //update user avalibilty
 router.patch('/:id', (req,res) => {
