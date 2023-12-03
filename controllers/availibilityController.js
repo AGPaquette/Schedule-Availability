@@ -1,6 +1,11 @@
 const Availibility = require('../models/AvailibilityTime')
 
 //get all availibility
+const getAvalibility = async (req, res) => {
+    const availibility = await Availibility.find()
+
+    res.status(200).json(availibility)
+}
 
 
 //get one availibility
