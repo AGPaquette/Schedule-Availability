@@ -1,4 +1,5 @@
 import React from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 import {useState} from "react"
 import "./App.css";
 import TextBox from "./components/textBox";
@@ -10,8 +11,10 @@ function App() {
   return (
     <div className="App from-control">
       <h1 className="container">Schedule App</h1>
+      <BrowserRouter>
       <DaysList></DaysList>
       <StaticButton></StaticButton>
+      </BrowserRouter>
     </div>
   );
 }
