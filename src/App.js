@@ -1,19 +1,28 @@
 import React from "react";
+
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import {useState} from "react"
-import "./App.css";
-import TextBox from "./components/textBox";
-import DaysList from "./components/employeeAvailabilty";
-import StaticButton from "./components/staticButton";
+
+//pages and components
+import HomePage from "./Pages/homePage"
+import NavBar from "./components/NavigationBar";
+//bootstraps
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
-    <div className="App from-control">
-      <h1 className="container">Schedule App</h1>
+    <div className="App form-control">
+      <h1 className="container form-control">Schedule App</h1>
       <BrowserRouter>
-      <DaysList></DaysList>
-      <StaticButton></StaticButton>
+        <NavBar />
+        <div className="form-control">
+          <Routes>
+            <Route
+            path="/"
+            element={<HomePage />}
+            />
+          </Routes>
+        </div>
       </BrowserRouter>
     </div>
   );
